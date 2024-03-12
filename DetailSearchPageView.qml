@@ -54,7 +54,7 @@ ColumnLayout {
             selectByMouse: true
             selectionColor: "#999999"
             placeholderText: "沈以诚"
-            //placeholderTextColor: "#999999"
+            placeholderTextColor: "#999999"
             background: Rectangle {
                 color: "#00000000"
 //                border.width: 1
