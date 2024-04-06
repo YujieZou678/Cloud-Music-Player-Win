@@ -37,9 +37,9 @@ ToolBar {
         }
         MusicToolButton {
             iconSource: "qrc:/images/about"
-            toolTip: "博客"
+            toolTip: "Github"
             onClicked: {
-                Qt.openUrlExternally("https://www.hyz.cool")
+                Qt.openUrlExternally("https://github.com/YujieZou678")
             }
         }
         MusicToolButton {
@@ -169,7 +169,7 @@ ToolBar {
                 }
 
                 Text {
-                    text: qsTr("续加仪")
+                    text: qsTr("云坠入雾里")
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     font.pixelSize: 18
@@ -186,15 +186,15 @@ ToolBar {
                     font.family:  window.mFONT_FAMILY
                     font.bold: true
                 }
-                Text {
-                    text: qsTr("www.hyz.cool")
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    font.pixelSize: 16
-                    color: "#8573a7ab"
-                    font.family:  window.mFONT_FAMILY
-                    font.bold: true
-                }
+                // Text {
+                //     text: qsTr("")
+                //     Layout.fillWidth: true
+                //     horizontalAlignment: Text.AlignHCenter
+                //     font.pixelSize: 16
+                //     color: "#8573a7ab"
+                //     font.family:  window.mFONT_FAMILY
+                //     font.bold: true
+                // }
             }
     }
 

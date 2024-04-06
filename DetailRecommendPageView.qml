@@ -175,21 +175,21 @@ ScrollView {
     //网络请求失败的间断性反复请求
     Timer {
         id: bannerRepeatRequest
-        interval: 1000
+        interval: 2000
         repeat: true
         running: false
         onTriggered: { postRequest("/banner", getBannerList, "bannerList") }
     }
     Timer {
         id: hotListRepeatRequest
-        interval: 1000
+        interval: 2000
         repeat: true
         running: false
         onTriggered: { postRequest("/top/playlist/highquality?limit=20", getHotList, "hotList") }
     }
     Timer {
         id: latestRepeatRequest
-        interval: 1000
+        interval: 2000
         repeat: true
         running: false
         onTriggered: { postRequest("/top/song", getLatestList, "latestList") }

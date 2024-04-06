@@ -55,7 +55,7 @@ signals:
     void getSongsFFEnd_Signal(const QStringList&);  //传递给qml的信号
 
 private:
-    QString BASE_URL{"http://47.109.111.69:3000"};
+    QString BASE_URL{"http://139.9.0.64:3000"};
     QNetworkAccessManager *manager[3];
     bool statusSignal[3];
 
