@@ -51,7 +51,9 @@ Frame {
         pageButton.visible = true
 
         listViewModel.clear()
-        listViewModel.append(musicList)
+        musicList.forEach(item=>{
+                              listViewModel.append(item)
+                          })
     }
 
     //缓冲画面
@@ -155,7 +157,7 @@ Frame {
                     //mainAllMusicListCopy = JSON.parse(JSON.stringify(musicList))  //赋值副本
                     mainAllMusicList = musicList
                     mainAllMusicListIndex = index
-                    MyJs.playMusic(targetId,name,artist,picUrl_)  //播放
+                    MyJs.playMusic(targetId,name,artist,picUrl_,ifIsFavorite)
                     MyJs.changeAndSaveHistoryList(musicList[index])  //需要放到index后面，否则会有bug
                     mainModelName = modelName
                     //当前正在播放的歌单/专辑id赋值
@@ -213,10 +215,34 @@ Frame {
 
                     Item {
                         Layout.preferredWidth: parent.width*0.15
+                        Layout.fillHeight: true
                         RowLayout {
                             anchors.centerIn: parent
+                            Item {
+                                Layout.preferredHeight: 16
+                                Layout.preferredWidth: 16
+                            }
                             MusicIconButton {
-                                iconSource: "qrc:/images/pause.png"
+                                iconSource: "qrc:/images/video-white.png"
+                                iconWidth: 16; iconHeight: 16
+                                toolTip: "MV"
+                                visible: mv==="0" ? false:true  //如果有mv
+                                onClicked: {
+                                    mediaPlayer.pause()
+                                    layoutBottomView.playStateSource = "qrc:/images/play_ing.png"
+                                    pageDetailView.cover.isRotating = false
+                                    console.log("歌曲已暂停")
+                                    pageHomeView.showMvView(mv)
+                                }
+                            }
+                            Item {
+                                Layout.preferredHeight: 24
+                                Layout.preferredWidth: 24
+                                visible: mv==="0" ? true:false  //如果没有mv
+                            }
+
+                            MusicIconButton {
+                                iconSource: "qrc:/images/play_ing.png"
                                 iconWidth: 16; iconHeight: 16
                                 toolTip: "播放"
                                 onClicked: {
@@ -248,14 +274,10 @@ Frame {
                                     layoutBottomView.refreshBottomFavorite()
                                 }
                             }
-//                            MusicIconButton {
-//                                iconSource: "qrc:/images/clear.png"
-//                                iconWidth: 16; iconHeight: 16
-//                                toolTip: "删除"
-//                                onClicked: {
-//                                    //
-//                                }
-//                            }
+                            Item {
+                                Layout.preferredHeight: 16
+                                Layout.preferredWidth: 16
+                            }
                         }
                     }  //end Item
 

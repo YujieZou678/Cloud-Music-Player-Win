@@ -207,7 +207,8 @@ ScrollView {
                                                         album: "未知",
                                                         picUrl: item.imageUrl,
                                                         type: item.targetType,
-                                                        ifIsFavorite: false
+                                                        ifIsFavorite: false,
+                                                        mv: "0"
                                                     }
                                             })
     }
@@ -235,7 +236,8 @@ ScrollView {
                                          artist: item.artists[0].name,
                                          album: "未知",
                                          picUrl: item.album.picUrl,
-                                         ifIsFavorite: false
+                                         ifIsFavorite: false,
+                                         mv: item.mvid+""
                                      }
                                  }
                               })

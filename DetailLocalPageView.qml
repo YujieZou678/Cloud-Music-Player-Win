@@ -79,7 +79,7 @@ ColumnLayout {
 
                 function onReply(songsList) {
                     for (var i in songsList) {
-                        var id = ""+songsList[i]
+                        var id = "file://"+songsList[i]
                         if (localMusicList.filter(item=>item.id===id).length<1) {  //遍历本地音乐列表，没找到重复的则加入
                             //处理每一首歌，songsList为它们的地址
                             var songNameAbsoArr = songsList[i].split("/")
@@ -97,7 +97,8 @@ ColumnLayout {
                                                artist: artist,
                                                album: "本地音乐",
                                                picUrl: "qrc:/images/errorLoading.png",
-                                               ifIsFavorite: MyJs.checkIsFavorite(id)===-1 ? false: true
+                                               ifIsFavorite: MyJs.checkIsFavorite(id)===-1 ? false: true,
+                                               mv: "0"
                                            })
                             console.log(id)
                         }
@@ -184,8 +185,7 @@ ColumnLayout {
 
             for (var i in songsList) {
                 var path = songsList[i]+""  //url转字符串
-                var id = path.replace("file:///","")  //id
-                if (localMusicList.filter(item=>item.id===id).length<1) {  //遍历本地音乐列表，没找到重复的则加入
+                if (localMusicList.filter(item=>item.id===path).length<1) {  //遍历本地音乐列表，没找到重复的则加入
                     //处理每一首歌，songsList为它们的地址
                     var songNameAbsoArr = path.split("/")
                     var songNameArr = songNameAbsoArr[songNameAbsoArr.length-1].split(".")
@@ -197,12 +197,13 @@ ColumnLayout {
                     var song = songArr.length>1 ? songArr[1]: songArr[0]
 
                     handMusicList.push({
-                                       id: id,
+                                       id: path,
                                        name: song,
                                        artist: artist,
                                        album: "本地音乐",
                                        picUrl: "qrc:/images/errorLoading.png",
-                                       ifIsFavorite: MyJs.checkIsFavorite(id)===-1 ? false: true
+                                       ifIsFavorite: MyJs.checkIsFavorite(id)===-1 ? false: true,
+                                       mv: "0"
                                    })
                     console.log(songsList[i])
                 }

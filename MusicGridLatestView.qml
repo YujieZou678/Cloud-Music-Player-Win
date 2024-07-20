@@ -36,7 +36,6 @@ Item {
                     width: parent.height
                     height: parent.height
                     imgSrc: modelData.picUrl
-                    loadingProgress.anchors.topMargin: 10
                 }
 
                 //歌名

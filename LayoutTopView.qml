@@ -39,7 +39,7 @@ ToolBar {
             iconSource: "qrc:/images/about"
             toolTip: "Github"
             onClicked: {
-                Qt.openUrlExternally("https://github.com/YujieZou678")
+                Qt.openUrlExternally("https://github.com/YujieZou678/Cloud-Music-Player")
             }
         }
         MusicToolButton {
@@ -186,15 +186,15 @@ ToolBar {
                     font.family:  window.mFONT_FAMILY
                     font.bold: true
                 }
-                // Text {
-                //     text: qsTr("")
-                //     Layout.fillWidth: true
-                //     horizontalAlignment: Text.AlignHCenter
-                //     font.pixelSize: 16
-                //     color: "#8573a7ab"
-                //     font.family:  window.mFONT_FAMILY
-                //     font.bold: true
-                // }
+//                Text {
+//                    text: qsTr("https://github.com/YujieZou678/Cloud-Music-Player")
+//                    Layout.fillWidth: true
+//                    horizontalAlignment: Text.AlignHCenter
+//                    font.pixelSize: 16
+//                    color: "#8573a7ab"
+//                    font.family:  window.mFONT_FAMILY
+//                    font.bold: true
+//                }
             }
     }
 
@@ -214,3 +214,5 @@ ToolBar {
         }
     }
 }  //end ToolBar
+
+

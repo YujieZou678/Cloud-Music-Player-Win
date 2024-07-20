@@ -16,6 +16,9 @@ HttpRequest::HttpRequest(QObject *parent)
     manager[0] = new QNetworkAccessManager(this);
     manager[1] = new QNetworkAccessManager(this);
     manager[2] = new QNetworkAccessManager(this);
+    manager[0]->setTransferTimeout(3000);  //设置超时时间
+    manager[1]->setTransferTimeout(3000);
+    manager[2]->setTransferTimeout(3000);
 
     connect(manager[0], &QNetworkAccessManager::finished, this, &HttpRequest::replyFinished1);
     connect(manager[1], &QNetworkAccessManager::finished, this, &HttpRequest::replyFinished2);

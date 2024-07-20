@@ -6,7 +6,7 @@ function: 最下面那层部件所用的按钮
 import QtQuick
 import QtQuick.Controls
 
-ToolButton {
+Button {
     property bool ifFavorite: false  //是否被收藏
 
     property string iconSource: ""

@@ -64,7 +64,7 @@ SystemTrayIcon {
         MenuItem {
             text: "退出"
             onTriggered: { Qt.quit() }
-            icon.name: "application-exit"
+            icon.source: "qrc:/images/clear.png"
         }
     }
 }

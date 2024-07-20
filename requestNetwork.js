@@ -52,8 +52,8 @@ function playMusic(targetId, name, artist, picUrl) {
     console.log("id: "+targetId+" 正在播放音乐")
 
     //本地音乐
-    var check = isNaN(targetId)  //是否为数字
-    if (check) {
+    var check = targetId.split(":")
+    if (check[0] === "file") {
         //本地音乐
         mediaPlayer.source = targetId
         layoutBottomView.playStateSource = "qrc:/images/pause.png"
@@ -81,7 +81,6 @@ function playMusic(targetId, name, artist, picUrl) {
     }
     layoutBottomView.timeText = getTime(window.mediaPlayer.position/1000)+"/"+getTime(window.mediaPlayer.duration/1000)
     layoutBottomView.musicCoverSrc = picUrl ? picUrl:"qrc:/images/errorLoading.png"
-    //layoutBottomView.ifIsFavorite = ifIsFavorite
     layoutBottomView.refreshBottomFavorite()
     if (mainBackground.selectImage) { mainBackground.backgroundImageSrc1 = picUrl; mainBackground.selectImage = false }
     else { mainBackground.backgroundImageSrc2 = picUrl; mainBackground.selectImage = true }
@@ -290,7 +289,8 @@ function getFormatData(songs) {
                                      artist: item.ar[0].name,
                                      album: item.al.name,
                                      picUrl: item.al.picUrl===undefined ? "qrc:/images/errorLoading.png":item.al.picUrl,
-                                     ifIsFavorite: false
+                                     ifIsFavorite: false,
+                                     mv: item.mv+""
                                  }
                              }
                           })

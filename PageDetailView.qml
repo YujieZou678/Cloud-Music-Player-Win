@@ -25,7 +25,7 @@ Item {
         anchors.fill: parent
 
         Frame {
-            Layout.preferredWidth: parent.width*0.45
+            //Layout.preferredWidth: parent.width*0.45
             Layout.fillWidth: true
             Layout.fillHeight: true
 

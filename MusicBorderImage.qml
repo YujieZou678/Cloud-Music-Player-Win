@@ -13,7 +13,6 @@ Rectangle {
     property bool isRotating: false
     property real rotationAngle: 0.0
     property alias imageLoading: imageLoading
-    property alias loadingProgress: loadingProgress
 
     radius: borderRadius
 

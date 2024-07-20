@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.24)
+cmake_minimum_required(VERSION 3.27)
 
 project(Cloud_Music_Player VERSION 0.1 LANGUAGES CXX)
 
@@ -42,6 +42,7 @@ qt_add_qml_module(appCloud_Music_Player
     QML_FILES Background.qml
     QML_FILES MainSystemTrayIcon.qml
     QML_FILES MusicToolTip.qml
+    QML_FILES MusicMvView.qml
 )
 
 target_compile_features(appCloud_Music_Player PRIVATE cxx_std_20)

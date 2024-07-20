@@ -17,7 +17,6 @@ Rectangle {
     property alias modePlay: playMode.toolTip  //播放模式
     property alias playStateSource: playIconButton.iconSource  //播放/暂停按钮
     property alias musicCoverSrc: musicCover.imgSrc  //图片信息
-    property alias ifIsFavorite: ifIsFavoriteButton.ifFavorite  //是否被收藏，同步当前播放的歌曲
 
     property var playModeSwitch: [  //播放模式提示语的数组
         { name: "顺序播放", source: "qrc:/images/repeat.png"},
@@ -26,8 +25,7 @@ Rectangle {
     ]
     property int indexPlayMode: 0
 
-    function refreshBottomFavorite() {  //刷新底部我喜欢按钮
-        if (mainAllMusicList.length < 1) return
+    function refreshBottomFavorite() {
         ifIsFavoriteButton.ifFavorite = mainAllMusicList[mainAllMusicListIndex].ifIsFavorite
     }
 
@@ -55,14 +53,14 @@ Rectangle {
         MusicIconButton {
             id: playIconButton
             Layout.preferredWidth: 50
-            iconSource: window.mediaPlayer.playbackState===1 ? "qrc:/images/pause.png":"qrc:/images/stop.png"
+            iconSource: window.mediaPlayer.playbackState===1 ? "qrc:/images/pause.png":"qrc:/images/play_ing.png"
             iconWidth: 32; iconHeight: 32
             toolTip: window.mediaPlayer.playbackState===1 ? "暂停":"播放"
             onClicked: {
                 switch (window.mediaPlayer.playbackState) {
                 case MediaPlayer.PlayingState:
                     window.mediaPlayer.pause()
-                    iconSource = "qrc:/images/stop.png"
+                    iconSource = "qrc:/images/play_ing.png"
                     pageDetailView.cover.isRotating = false
                     break;
                 case MediaPlayer.PausedState:
@@ -238,7 +236,6 @@ Rectangle {
                 loader.item.refreshList()  //刷新
             }
         }
-
         MusicIconButton {
             id: playMode
             Layout.preferredWidth: 50

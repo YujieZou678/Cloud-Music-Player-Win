@@ -45,4 +45,18 @@ Rectangle {
         anchors.centerIn: parent
         font.family: window.mFONT_FAMILY
     }
+
+    function getGlobalPosition(target = parent) {
+        var targetX = 0
+        var targetY = 0
+        while (target !== null) {
+            targetX += targetX
+            targetY += targetY
+            target = target.parent
+        }
+        return {
+            x: targetX,
+            y: targetY
+        }
+    }
 }

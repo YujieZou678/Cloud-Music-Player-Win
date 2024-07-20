@@ -7,12 +7,17 @@ import QtQuick
 import QtQuick.Controls
 
 ToolButton {
-    property string iconSource: ""
 
+    property string iconSource: ""
     property string toolTip: "提示"
 
     property bool isCheckable: false
     property bool isChecked: false
+    property bool ifNeedToolTip: true  //是否需要tooltip
+    property bool ifNeedClickBac: true  //是否需要点击背景
+
+    property string iconClickColor: "#00000000"  //点击icon它的颜色
+    property string iconColor: "#eeeeee"  //没点击icon它的颜色
 
     id: self
 
@@ -25,7 +30,7 @@ ToolButton {
     //提示内容
     //ToolTip.text: toolTip
     MusicToolTip {
-        visible: parent.hovered
+        visible: ifNeedToolTip ? parent.hovered:false
         text: toolTip
         parentX: parent.x
         parentY: parent.y
@@ -33,9 +38,10 @@ ToolButton {
 
     //默认为鼠标悬浮背景变白
     background: Rectangle {
+        visible: ifNeedClickBac
         color: self.down || (isCheckable && self.isChecked) ? "#eeeeee" : "#00000000"
     }
-    icon.color: self.down ? "#00000000" : "#eeeeee"
+    icon.color: self.down ? iconClickColor : iconColor
 
     //是否可检测
     checkable: isCheckable

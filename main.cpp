@@ -10,7 +10,7 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     //添加程序icon
-    //app.setWindowIcon(QIcon(":/images/music.png"));
+    app.setWindowIcon(QIcon(":/images/music.png"));
 
     QQmlApplicationEngine engine;
     //添加C++类,直接使用其方法
